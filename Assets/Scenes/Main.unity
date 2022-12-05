@@ -726,7 +726,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  dialogue: {fileID: 1526725486}
   msg: Welcome to the course! Try hitting the boxes with your sword!
   color: {r: 1, g: 1, b: 1, a: 1}
   duration: 4
@@ -15264,7 +15263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 2019180243}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1151894234
@@ -17352,7 +17351,7 @@ GameObject:
   - component: {fileID: 1436047352}
   m_Layer: 0
   m_Name: gameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17648,7 +17647,7 @@ GameObject:
   - component: {fileID: 1526725494}
   m_Layer: 5
   m_Name: Dialogue
-  m_TagString: Untagged
+  m_TagString: DialogueController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18292,7 +18291,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  dialogue: {fileID: 0}
   damagePoint: 01000000020000000300000004000000050000000600000007000000
   pushForce:
   - 2

@@ -13,16 +13,24 @@ public class TalkingNPC : Collidable
 
     public List<Say> stuff = new List<Say>()
     {
-        new Say(new Character("Tutorial"), "Welcome to the course! Try hitting the boxes with your sword!"), 
-        new Say(new Character("You"), "Okay.")
+        
     }; 
-    // private Character me = GameManager.instance.characters["tutorial"]; 
+    // private Character me = GameManager.instance.characters["tutorial"];
 
     protected override void Start() 
     {
         base.Start(); 
+        InitDialogue(); 
         cooldown = duration; 
         lastShout = -cooldown; 
+    }
+
+    private void InitDialogue() {
+        Character me = new Character("Tutorial", this.gameObject.GetComponent<SpriteRenderer>().sprite); 
+        Character you = new Character("You", Color.cyan); 
+
+        stuff.Add(new Say(me, "Welcome to the course! Try hitting the boxes with your sword!")); 
+        stuff.Add(new Say(new Character("You"), "Okay.")); 
     }
 
     protected override void OnCollide(Collider2D coll)
@@ -34,18 +42,18 @@ public class TalkingNPC : Collidable
 
         if (Input.GetButtonDown("Submit"))
         {
-            if (!showing) 
+            if (!showing && Time.time - lastShout > cooldown) 
             {
                 dialogue.GetComponent<DialogueManager>().Say(stuff); 
                 // dialogue.GetComponent<Animator>().SetTrigger("show"); 
-                showing = true; 
+                showing = true;
             }
             else 
             {
                 // dialogue.GetComponent<Animator>().SetTrigger("hide"); 
                 showing = false; 
             }
-
+            lastShout = Time.time; 
         }
     }
 }

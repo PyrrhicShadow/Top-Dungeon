@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
 
 public class Character
 {
@@ -26,6 +25,12 @@ public class Character
         this.speed = speed; 
     }
 
+    public Character(string name, Sprite sprite) {
+        InitChara(); 
+        this.name = name;  
+        this.sprites.Add(sprite); 
+    }
+
     /// <summary>Name and color, for npcs</summary>
     public Character(string name, Color whoColor) 
     {
@@ -41,6 +46,13 @@ public class Character
         this.name = name; 
         this.whoColor = whoColor; 
         this.speed = speed; 
+    }
+
+    public Character(string name, Color whoColor, Sprite sprite) {
+        InitChara(); 
+        this.name = name; 
+        this.whoColor = whoColor;  
+        this.sprites.Add(sprite); 
     }
 
     // Name, color, sprite, for characters with sprites
@@ -64,6 +76,6 @@ public class Character
         this.whoColor = Color.white; 
         this.whatColor = Color.white; 
         sprites = new List<Sprite>();
-        this.speed = 0.5f; 
+        this.speed = 0.1f; 
     }
 }

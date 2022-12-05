@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collidable : MonoBehaviour
 {
     public ContactFilter2D filter;
-    public GameObject dialogue; 
+    protected GameObject dialogue; 
     private BoxCollider2D boxCollider;
     private Collider2D[] hits = new Collider2D[10]; 
 
@@ -14,6 +14,7 @@ public class Collidable : MonoBehaviour
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>(); 
+        dialogue = GameObject.FindWithTag("DialogueController"); 
     }
 
     protected virtual void Update()

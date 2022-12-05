@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PauseControl : MonoBehaviour
 {
-    
+    /****    Deprecated Class    ****/
 }

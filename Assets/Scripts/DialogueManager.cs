@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     private Animator animator; 
     private float saySpeed; 
     private List<Character> charas = new List<Character>();
-    private int index; 
+    private int index = -1; 
     private List<Say> dialogue; 
 
     void Start() {
@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetButtonDown("Submit")) {
+        if (Input.GetButtonDown("Submit") && index != -1) {
             if (what.text == dialogue[index].what) {
                 NextLine(); 
             }
@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     {
         this.dialogue = dialogue; 
         animator.SetTrigger("show"); 
+        Time.timeScale = 0f; 
         index = 0; 
         SayLine(dialogue[index]); 
         StartCoroutine(TypeLine(dialogue[index])); 
@@ -50,7 +51,7 @@ public class DialogueManager : MonoBehaviour
         // type each character 1 by 1
         foreach (char c in line.what) {
             what.text += c; 
-            yield return new WaitForSeconds(line.who.speed); 
+            yield return new WaitForSecondsRealtime(line.who.speed); 
         }
         Debug.Log("Line complete."); 
     }
@@ -63,13 +64,16 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(TypeLine(dialogue[index])); 
         }
         else {
-            animator.SetTrigger("hide");  
+            animator.SetTrigger("hide"); 
+            Time.timeScale = 1f; 
+            index = -1; 
         }
     }
 
     private void SayLine(Say line) {
         who.text = line.who.name; 
         who.color = line.who.whoColor; 
-        what.color = line.who.whatColor; 
+        what.color = line.who.whatColor;
+        what.text = "";  
     }
 }
