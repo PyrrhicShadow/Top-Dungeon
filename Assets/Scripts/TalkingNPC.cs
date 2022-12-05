@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TalkingNPC : Collidable
 {
-    public string msg; 
-    public Color color = Color.white; 
-    public float duration = 4.0f; 
+    [SerializeField] string msg; 
+    [SerializeField] Color color = Color.white; 
+    [SerializeField] float duration = 4.0f; 
 
     private float cooldown; 
     private float lastShout; 
@@ -37,12 +37,12 @@ public class TalkingNPC : Collidable
             if (!showing) 
             {
                 dialogue.GetComponent<DialogueManager>().Say(stuff); 
-                dialogue.GetComponent<Animator>().SetTrigger("show"); 
+                // dialogue.GetComponent<Animator>().SetTrigger("show"); 
                 showing = true; 
             }
             else 
             {
-                dialogue.GetComponent<Animator>().SetTrigger("hide"); 
+                // dialogue.GetComponent<Animator>().SetTrigger("hide"); 
                 showing = false; 
             }
 
