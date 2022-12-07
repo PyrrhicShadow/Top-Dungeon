@@ -8,15 +8,15 @@ public class Enemy : Mob
     public int xpValue = 1; 
 
     // Logic 
-    public float triggerLength = 0.3f;
-    public float chaseLength = 1.0f;
+    [SerializeField] float triggerLength = 0.3f;
+    [SerializeField] float chaseLength = 1.0f;
 
     private bool chasing;
     private bool collidingWithPlayer;
     private Vector3 startingPosition;
 
     // Hitbox 
-    public ContactFilter2D filter; 
+    [SerializeField] ContactFilter2D filter; 
     private BoxCollider2D hitbox;
     private Collider2D[] hits = new Collider2D[10]; 
 

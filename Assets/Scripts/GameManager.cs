@@ -31,10 +31,14 @@ public class GameManager : MonoBehaviour
     }
 
     // Resources 
-    public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    public List<int> weaponPrices;
-    public List<int> xpTable;
+    [SerializeField] List<Sprite> _playerSprites;
+    public List<Sprite> playerSprites { get { return _playerSprites; } private set { _playerSprites = value;} }
+    [SerializeField] List<Sprite> _weaponSprites;
+    public List<Sprite> weaponSprites {get { return _weaponSprites; } private set { _weaponSprites = value; } } 
+    [SerializeField] List<int> _weaponPrices;
+    public List<int> weaponPrices { get { return _weaponPrices; } private set { _weaponPrices = value; } }
+    [SerializeField] List<int> _xpTable; 
+    public List<int> xpTable { get { return _xpTable; } private set { _xpTable = value; } }
     public Dictionary<string, Character> charas = new Dictionary<string, Character>() 
     {
         {"player", new Character("You", Color.white)}, 
@@ -42,20 +46,23 @@ public class GameManager : MonoBehaviour
     }; 
 
     // References 
-    public Player player;
-    public Weapon weapon; 
-    public FloatingTextManager floatingTextManager;
-    public RectTransform hitPointBar; 
-    public Animator deathMenuAnim; 
-    public Animator settingsMenuAnim; 
-    public GameObject hud; 
-    public GameObject menu; 
-    public GameObject settings; 
-    public GameObject dialogue; 
+    [SerializeField] Player _player; 
+    public Player player { get { return _player; } private set { _player = value; } }
+    [SerializeField] Weapon _weapon; 
+    public Weapon weapon { get { return _weapon; } private set { _weapon = value; } }
+    [SerializeField] FloatingTextManager floatingTextManager;
+    [SerializeField] RectTransform hitPointBar; 
+    [SerializeField] Animator _deathMenuAnim; 
+    public Animator deathMenuAnim { get { return _deathMenuAnim; } private set { _deathMenuAnim = value; } } 
+    [SerializeField] Animator settingsMenuAnim; 
+    [SerializeField] GameObject hud; 
+    [SerializeField] GameObject menu; 
+    [SerializeField] GameObject settings; 
+    [SerializeField] GameObject dialogue; 
 
     // Logic 
-    public int souls;
-    public int experience; 
+    public int souls { get; set; }
+    public int experience { get; set; }
     
     // Floating Text
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration) 

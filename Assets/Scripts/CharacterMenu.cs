@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class CharacterMenu : MonoBehaviour
 {
-    // Text fields
-    public Text levelText, hitPointText, soulsText, upgradeCostText, xpText; 
+    [Header("Text fields")]
+    [SerializeField] Text levelText, hitPointText, soulsText, upgradeCostText, xpText; 
 
-    // Logic
-    public static bool menu = false; 
-    public Animator animator; 
+    [Header("Logic")]
+    [SerializeField] static bool menu = false; 
+    [SerializeField] Animator animator; 
+    [SerializeField] Image characterSelectionSprite;
+    [SerializeField] Image weaponSprite;
+    [SerializeField] RectTransform xpBar;
     private int currentCharacterSelection = 0;
-    public Image characterSelectionSprite;
-    public Image weaponSprite;
-    public RectTransform xpBar;
 
     // Pause/unpause game when entering menu
     public void PauseGame(bool pause)

@@ -8,7 +8,7 @@ public class Character
     public Color whoColor { get; set; } 
     public Color whatColor { get; set; } 
     public List<Sprite> sprites; 
-    public Vector3 whoPos {get; set; } 
+    public Vector3 whoPos { get; set; } 
     public float speed { get; set; } 
 
     /// <summary>Just a name, normally for objects</summary>

@@ -13,12 +13,7 @@ public class EnemyHitBox : Collidable
         if (coll.tag == "Fighter" && coll.name == "player")
         {
             // Create a new damage object before sending it to the player 
-            Damage dmg = new Damage
-            {
-                damageAmount = damage,
-                origin = transform.position,
-                pushForce = pushForce
-            };
+            Damage dmg = new Damage(transform.position, damage, pushForce); 
 
             coll.SendMessage("ReceiveDamage", dmg);
         }

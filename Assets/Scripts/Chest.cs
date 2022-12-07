@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Chest : Collectable
 {
-    public Sprite openChest; 
-    public Sprite emptyChest;
-    public int soulsAmount = 10; 
+    [SerializeField] Sprite openChest; 
+    [SerializeField] Sprite emptyChest;
+    [SerializeField] int soulsAmount = 10; 
 
     protected override void OnCollect()
     {

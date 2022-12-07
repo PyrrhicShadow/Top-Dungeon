@@ -3,12 +3,18 @@ using UnityEngine.UI;
 
 public class FloatingText
 {
-    public bool active;
-    public GameObject go;
-    public Text txt;
-    public Vector3 motion;
-    public float duration;
-    public float lastShown; 
+    [SerializeField] bool _active;
+    public bool active { get { return _active; } set { _active = value; } }
+    [SerializeField] GameObject _go; 
+    public GameObject go { get { return _go; } set { _go = value; } }
+    [SerializeField] Text _txt;
+    public Text txt { get { return _txt; } set { _txt = value; } }
+    [SerializeField] Vector3 _motion;
+    public Vector3 motion { get { return _motion; } set { _motion = value; } }
+    [SerializeField] float _duration;
+    public float duration { get { return _duration; } set { _duration = value; } }
+    [SerializeField] float _lastShown; 
+    public float lastShown { get { return _lastShown; } set { _lastShown = value; } }
 
     public void Show()
     {

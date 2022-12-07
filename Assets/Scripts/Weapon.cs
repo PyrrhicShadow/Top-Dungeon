@@ -5,11 +5,11 @@ using UnityEngine;
 public class Weapon : Collidable
 {
     // Damage structure 
-    public int[] damagePoint = {1, 2, 3, 4, 5, 6, 7};
-    public float[] pushForce = {2.0f, 2.2f, 2.5f, 3.0f, 3.2f, 3.6f, 4f};
+    [SerializeField] int[] damagePoint = {1, 2, 3, 4, 5, 6, 7};
+    [SerializeField] float[] pushForce = {2.0f, 2.2f, 2.5f, 3.0f, 3.2f, 3.6f, 4f};
 
     // Upagrade 
-    public int weaponLevel = 0;
+    public int weaponLevel { get; set; } = 0;
     private SpriteRenderer spriteRenderer;
 
     // Swing 
@@ -49,12 +49,7 @@ public class Weapon : Collidable
         if (coll.tag == "Fighter" && coll.name != "player")
         {
             // Create a new Damage object, then we'll send it to the Fighter we've hit 
-            Damage dmg = new Damage
-            {
-                damageAmount = damagePoint[weaponLevel],
-                origin = transform.position,
-                pushForce = pushForce[weaponLevel]
-            };
+            Damage dmg = new Damage(transform.position, damagePoint[weaponLevel], pushForce[weaponLevel]); 
 
             coll.SendMessage("ReceiveDamage", dmg); 
         }

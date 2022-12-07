@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Portal : Collidable
 {
-    public string[] sceneNames; 
+    [SerializeField] string[] sceneNames; 
 
     protected override void OnCollide(Collider2D coll)
     {

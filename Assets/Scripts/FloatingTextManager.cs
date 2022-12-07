@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class FloatingTextManager : MonoBehaviour
 {
-    public GameObject textContainer;
-    public GameObject textPrefab;
+    [SerializeField] GameObject textContainer;
+    [SerializeField] GameObject textPrefab;
 
     private List<FloatingText> floatingTexts = new List<FloatingText>();
 

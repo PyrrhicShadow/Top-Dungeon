@@ -6,7 +6,7 @@ public class Player : Mob
 {
 
     private SpriteRenderer spriteRenderer; 
-    public bool isAlive = true; 
+    public bool isAlive { get; set; } = true; 
 
     protected override void Start()
     {

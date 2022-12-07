@@ -5,9 +5,12 @@ using UnityEngine;
 public class Fighter : MonoBehaviour
 {
     // Public fields 
-    public int hitPoint;
-    public int maxHitPoint;
-    public float pushRecoverySpeed = 2.0f;
+    [SerializeField] int _hitPoint;
+    public int hitPoint { get { return _hitPoint; } set { _hitPoint = value; } }
+    [SerializeField] int _maxHitPoint; 
+    public int maxHitPoint { get { return _maxHitPoint; } set { _maxHitPoint = value; } }
+    [SerializeField] float _pushRecoverySpeed = 2.0f;
+    public float pushRecoverySpeed { get { return _pushRecoverySpeed; } set { _pushRecoverySpeed = value; }}
 
     // Immunity 
     protected float immuneTime = 1.0f;
